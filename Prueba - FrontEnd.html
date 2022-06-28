@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+
+    <title>Prueba - Programación Front-End </title>
+  </head>
+  <body>
+    <style>
+        table, th, td { border: 1px solid; color: red;}
+    </style>
+    <div class="container">
+    <div class="container py-2">
+    <p class="lead">Listado</p>
+    <table class="table" id="tabla">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Software</th>
+            <th>Empresa</th>
+            <th>Usuario</th>
+        </tr>
+    <form>
+    <tr>
+      <td><input id="Software" type="text" placeholder="Software" class="form-control my-2"></td>
+      <td><input id="Empresa" type="text" placeholder="Empresa" class="form-control my-2"></td>
+      <td><input id="Usuario" type="text" placeholder="Usuario" class="form-control my-2"></td>
+      <td><button id="boton" type="reset" onclick="capturar();"  class="btn bnt-success">agregar</button></td>
+      <td><button id="boton2" type="submit" onclick="color();" class="btn bnt-sucess">Color</button></td>
+    </tr>
+    </form>
+    </table>
+    </thead>
+    </div>
+    </div>    
+
+</div>
+    <script >
+      function capturar(){
+        console.log("capturado");
+        function Persona(Software, Empresa, Usuario){
+          this.Software=Software;
+          this.Empresa=Empresa;
+          this.Usuario=Usuario;
+        }
+        var capturarSoftware=document.getElementById("Software").value;
+        console.log(capturarSoftware);
+        var capturarEmpresa=document.getElementById("Empresa").value;
+        console.log(capturarEmpresa);
+        var capturarUsuario=document.getElementById("Usuario").value;
+        console.log(capturarUsuario);
+
+        sujeto= new Persona(capturarSoftware, capturarEmpresa, capturarUsuario);
+        agregar();
+      }
+      var basedatos=[];
+      function agregar(){
+        basedatos.push(sujeto)
+        console.log(basedatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+sujeto.Software+'</td><td>'+sujeto.Empresa+'</td><td>'+sujeto.Usuario+'</td></tbody>';
+      }
+      function color(){
+        boton2.onclick=
+        tabla.style.background="black";
+    }
+    </script>
+
+  </body>
+</html>
